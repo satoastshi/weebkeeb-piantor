@@ -1,0 +1,33 @@
+name: Build ZMK firmware
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+
+  release:
+    name: Create Github Release
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    steps:
+      - name: Set Tag Name (Current Date)
+        id: date
+        run: echo "tag_name=$(date +'%Y-%m-%d-%H%M%S')" >> $GITHUB_ENV
+
+      - name: Download firmware artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: firmware
+          path: .
+
+      - name: Find Compressed Firmware
+        run: echo "firmware_file=$(ls | grep -E 'firmware')" >> $GITHUB_ENV
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: "*.uf2"
+          tag_name: "${{ env.tag_name }}"
+          name: "${{ env.tag_name }}"
+          body: "Build: ${{ github.sha }}"
