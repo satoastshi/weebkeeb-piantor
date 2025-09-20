@@ -74,7 +74,7 @@
             //                    |     |     |     |     |     |     |
 
             bindings = <
-&none  &trans  &trans  &trans  &kp C_BRIGHTNESS_INC  &kp C_AC_HOME  &kp K_MUTE  &kp C_VOLUME_UP  &kp PAGE_UP  &trans  &trans  &none  &none  &trans  &kp C_AL_MAIL  &trans  &kp C_AL_CALCULATOR  &kp DELETE  &kp INSERT  &kp K_PREV  &kp K_PLAY_PAUSE  &kp K_NEXT  &trans  &none  &none  &trans  &trans  &trans  &kp C_BRIGHTNESS_DEC  &kp C_AC_SEND  &trans  &kp C_VOLUME_DOWN  &kp PAGE_DOWN  &trans  &trans  &none  &trans  &trans  &trans  &trans  &trans  &trans
+&none  &trans  &trans  &trans  &kp C_BRIGHTNESS_INC  &kp HOME  &kp K_MUTE  &kp C_VOLUME_UP  &kp PAGE_UP  &trans  &trans  &none  &none  &trans  &kp C_AL_MAIL  &trans  &kp C_AL_CALCULATOR  &kp DELETE  &kp INSERT  &kp K_PREV  &kp K_PLAY_PAUSE  &kp K_NEXT  &trans  &none  &none  &trans  &trans  &trans  &kp C_BRIGHTNESS_DEC  &kp END  &trans  &kp C_VOLUME_DOWN  &kp PAGE_DOWN  &trans  &trans  &none  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
