@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a ZMK (Zephyr Mechanical Keyboard) firmware configuration for the Piantor Pro BT keyboard, a 42-key split ergonomic keyboard with wireless Bluetooth connectivity and optional display support.
+This is a ZMK (Zephyr Mechanical Keyboard) firmware configuration for the Piantor Pro BT keyboard, a 36-key split ergonomic keyboard with wireless Bluetooth connectivity and optional display support.
 
 ## Build and Development Commands
 

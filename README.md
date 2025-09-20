@@ -1,10 +1,10 @@
 # Piantor Pro BT ZMK Configuration
 
-ZMK firmware configuration for the Piantor Pro BT, a 42-key split ergonomic keyboard with wireless Bluetooth connectivity.
+ZMK firmware configuration for the Piantor Pro BT, a 36-key split ergonomic keyboard with wireless Bluetooth connectivity.
 
 ## Features
 
-- **42-key split layout** with ergonomic column stagger
+- **36-key split layout** with ergonomic column stagger
 - **Bluetooth wireless** connectivity with profile switching
 - **Home row mods** for efficient modifier access
 - **6 layers** covering typing, numbers, symbols, media, mouse, and system functions
@@ -102,7 +102,7 @@ The configuration builds multiple variants:
 
 - **Firmware:** ZMK (Zephyr RTOS)
 - **MCU:** nRF52840 (Bluetooth LE)
-- **Layout:** 42 keys in 3x6+3 configuration
+- **Layout:** 36 keys in 3x5+3 configuration
 - **Connectivity:** Bluetooth 5.0, USB-C
 - **Display:** Nice!View compatible
 - **Power:** Battery powered with low-power design
