@@ -14,6 +14,8 @@ ZMK firmware configuration for the Piantor Pro BT, a 36-key split ergonomic keyb
 
 ## Layout Overview
 
+![Piantor Pro BT keymap](screenshots/keymap.png)
+
 ### Base Layer (QWERTY)
 ```
 | NONE |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  | NONE |
