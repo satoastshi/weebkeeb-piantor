@@ -10,8 +10,9 @@
 #include <dt-bindings/zmk/pointing.h>
 
 &mt {
-    flavor = "balanced";
+    flavor = "tap-preferred";
     tapping-term-ms = <250>;
+    retro-tap;
 };
 
 / {
@@ -19,6 +20,15 @@
 };
 
 / {
+    macros {
+        super: super {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_CONTROL &kp LEFT_ALT &kp LEFT_COMMAND>;
+            label = "SUPER";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -32,7 +42,7 @@
             //                    | ESC |GUI/ESC|3/BSPC|1/SPC|2/ENT| NONE |
 
             bindings = <
-&none  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &none  &none  &kp A  &mt LEFT_SHIFT S  &mt LEFT_CONTROL D  &mt RIGHT_ALT F  &kp G  &kp H  &mt LEFT_ALT J  &mt RIGHT_CONTROL K  &mt RIGHT_SHIFT L  &kp SINGLE_QUOTE  &none  &none  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &none  &kp ESCAPE  &mt LEFT_GUI ESCAPE  &lt 3 BACKSPACE  &lt 1 SPACE  &lt 2 ENTER  &none
+&none  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &none  &none  &kp A  &mt LEFT_SHIFT S  &mt LEFT_CONTROL D  &mt RIGHT_ALT F  &kp G  &kp H  &mt LEFT_ALT J  &mt RIGHT_CONTROL K  &mt RIGHT_SHIFT L  &kp SINGLE_QUOTE  &none  &none  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &none  &kp ESCAPE  &mt LEFT_GUI ESCAPE  &lt 3 BACKSPACE  &lt 1 SPACE  &lt 2 ENTER  &super
             >;
         };
 
@@ -65,7 +75,7 @@
         };
 
         media_layer {
-            display-name = "media";
+            display-name = "MEDIA";
 
             // -----------------------------------------------------------------------------------------
             // | NONE |     |     |     | BRI+|HOME | MUTE| VOL+| PGUP|     |     | NONE |
@@ -79,7 +89,7 @@
         };
 
         mouse_layer {
-            display-name = "mouse";
+            display-name = "MOUSE";
 
             // -----------------------------------------------------------------------------------------
             // | NONE |  Q  |     |  W  |  E  |  R  |     |     |     |     | SCR↑| NONE |
@@ -93,7 +103,7 @@
         };
 
         bluetooth_layer {
-            display-name = "bluetooth";
+            display-name = "BLUETOOTH";
 
             // -----------------------------------------------------------------------------------------
             // | NONE |     |     |     |     |     |     |     |     |     |     | NONE |
