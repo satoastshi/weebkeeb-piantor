@@ -10,8 +10,8 @@
 #include <dt-bindings/zmk/pointing.h>
 
 &mt {
-    flavor = "tap-preferred";
-    tapping-term-ms = <250>;
+    flavor = "balanced";
+    tapping-term-ms = <200>;
     retro-tap;
 };
 
@@ -24,7 +24,10 @@
         super: super {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_CONTROL &kp LEFT_ALT &kp LEFT_COMMAND>;
+            bindings =
+                <&kp LEFT_CONTROL &kp LEFT_ALT &kp LEFT_COMMAND>,
+                <&macro_press>;
+
             label = "SUPER";
         };
     };
