@@ -74,9 +74,10 @@ Nice!View displays show:
 3. Download new firmware from Actions or Releases
 
 ### Key Features to Preserve
-- **Balanced mod-tap** with 250ms timing
-- **Home row mods** on ASDF/JKL; positions
+- **Balanced mod-tap** with 200ms timing and retro-tap enabled
+- **Home row mods** on ASDF/JKL; positions following GACS order
 - **Layer organization** for consistent navigation
+- **Super macro** for Ctrl+Alt+Cmd app-switching
 
 ### Build Variants
 The configuration builds multiple variants:
