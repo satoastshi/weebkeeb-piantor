@@ -9,10 +9,10 @@
 include:
   - board: piantor_pro_bt_left
     snippet: studio-rpc-usb-uart
-    shield: nice_view
+    shield: kyria_left nice_view_adapter nice_view_gem
     cmake-args: -DCONFIG_ZMK_STUDIO=y
   - board: piantor_pro_bt_right
-    shield: nice_view
+    shield: kyria_right nice_view_adapter nice_view_gem
     snippet: studio-rpc-usb-uart
 
   - board: piantor_pro_bt_left
