@@ -4,7 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a ZMK (Zephyr Mechanical Keyboard) firmware configuration for the Piantor Pro BT keyboard, a 36-key split ergonomic keyboard with wireless Bluetooth connectivity and optional display support.
+This is a forked ZMK (Zephyr Mechanical Keyboard) firmware configuration for the Piantor Pro BT keyboard, a 42-key split ergonomic keyboard with wireless Bluetooth connectivity and Nice!View Gem display support.
+
+**Fork customizations:**
+- Nice!View Gem display integration via M165437's nice-view-gem project
+- Custom 4-layer layout optimized for programming and media control
+- "OIL" text macro combo (positions 41+36 triggers `nvim -c OIL`)
 
 ## Build and Development Commands
 
@@ -24,33 +29,30 @@ This is a ZMK (Zephyr Mechanical Keyboard) firmware configuration for the Pianto
 ## Architecture and Key Files
 
 **Core Configuration:**
-- `config/piantor_pro_bt.keymap` - Main keymap definition with 6 layers and ZMK behavior configurations
-- `config/piantor_pro_bt.json` - Physical layout definition with key positions and multiple layout variants
-- `config/west.yml` - ZMK dependency manifest pointing to zmkfirmware/zmk main branch
+- `config/piantor_pro_bt.keymap` - Main keymap with 4 layers and custom OIL macro combo
+- `config/piantor_pro_bt.json` - Physical layout definition with default 42-key and five_col 30-key variants
+- `config/west.yml` - Dependencies: zmkfirmware/zmk (main) + M165437/nice-view-gem (main)
 
 **Build Configuration:**
-- `build.yaml` - GitHub Actions matrix for building left/right halves with different configurations:
-  - Studio-enabled builds with USB-UART RPC for ZMK Studio compatibility
-  - Nice!View display shield support
-  - Settings reset shield variants
+- `build.yaml` - GitHub Actions matrix building left/right halves with:
+  - Shields: `nice_view_adapter nice_view_gem` for Nice!View Gem display
+  - Snippet: `studio-rpc-usb-uart` for ZMK Studio support
+  - Both: settings_reset variants for clearing EEPROM/Bluetooth profiles
+  - ZMK Studio enabled on all builds (`-DCONFIG_ZMK_STUDIO=y`)
 - `.github/workflows/build.yml` - CI/CD pipeline using ZMK's shared workflow
 
 **Keyboard Layout Structure:**
-- **Layer 0 (QWERTY):** Base layer with home row mods (Shift/Ctrl/Alt on ASDF/JKL;)
-- **Layer 1 (NUMBER):** Numbers, function keys, and basic navigation (accessed via Space hold)
-- **Layer 2 (SYMBOL):** Symbols and arrow keys with shift modifiers (accessed via Enter hold)
-- **Layer 3 (MEDIA):** Media controls, brightness, volume, page navigation (accessed via Backspace hold)
-- **Layer 4 (MOUSE):** Mouse movement, clicks, and scroll wheel (accessed via Tab on Layer 1)
-- **Layer 5 (BLUETOOTH):** Bluetooth profile management, system reset, bootloader access (accessed via ; on Layer 1)
+- **Layer 0 (Default):** QWERTY base with TAB/CTRL/Shift modifiers, thumbs: mo(2)/SPACE/SHIFT | BKSP/ENTER/ESC
+- **Layer 1 (Lower):** Numbers 1-9/0 on home/top rows, navigation arrows (left/down/right), page up/down, GUI on thumb
+- **Layer 2 (Raise):** Symbols (!@#$%^&*), paired brackets (()[]{}<>), arithmetic operators, question mark
+- **Layer 3 (Adjust):** Bluetooth controls (BT_NXT/PRV), RGB toggle/effects, backlight controls, media keys (play/prev/next), studio_unlock
 
 **Key Technical Details:**
-- Uses balanced mod-tap behavior with 200ms tapping term and retro-tap enabled
-- Supports ZMK Studio for live keymap editing (studio-rpc-usb-uart snippet)
-- Home row mods configured on ASDF (left) and JKL; (right) keys following GACS order (GUI/Alt/Ctrl/Shift)
-- Layer access through layer-tap thumb keys (lt bindings) and momentary layer switches
-- Custom "super" macro combines Ctrl+Alt+Cmd for app-switching workflows
-- Mouse emulation support with movement and scroll wheel controls
-- Physical layout defined in `piantor_pro_bt.json` with default 42-key and five_col variants
+- Nice!View Gem display via M165437's nice-view-gem project for improved visualization
+- ZMK Studio enabled for live keymap editing over USB-UART RPC
+- OIL macro: Combo on thumb cluster (36+41) outputs "nvim -c OIL" string
+- Physical layouts: 42-key default_layout (6×3+6 thumbs) and 30-key five_col_layout (5×3+6 thumbs)
+- Layer access: Momentary layer switches (mo bindings) on outer columns and thumb keys
 
 ## Keymap Modification Guidelines
 
@@ -81,3 +83,6 @@ This is a ZMK (Zephyr Mechanical Keyboard) firmware configuration for the Pianto
 - Layer nodes use snake_case (e.g., `number_layer`), display-name uses uppercase
 - Keep ASCII art comments aligned with existing column guides
 - Use descriptive behavior labels (`&mt`, `&lt`) over inline hex scancodes
+
+## cc-sessions
+Include: @CLAUDE.sessions.md
