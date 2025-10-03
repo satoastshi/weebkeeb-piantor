@@ -9,7 +9,7 @@ manifest:
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: nive-view-gem
+    - name: nice-view-gem
       remote: m165437
       revision: main
   self:
